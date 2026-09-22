@@ -1,0 +1,410 @@
+---
+---
+
+<section class="w-full py-20 lg:py-28 bg-surface" id="cennik">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Header without AI kicker -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-8 reveal">
+      <div class="space-y-3">
+        <h2 class="font-headline-xl text-headline-xl text-on-surface font-normal leading-tight text-3xl lg:text-4xl">
+          Przejrzysty cennik zabiegów i pakiety
+        </h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+          Każdy plan leczenia przedstawiamy w wariancie całościowym. Wiesz dokładnie, za co płacisz, jeszcze przed zajęciem fotela.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-4 p-4 rounded-2xl bg-surface-container-low border border-surface-container/60 shrink-0">
+        <span class="material-symbols-outlined text-secondary text-2xl" aria-hidden="true">credit_score</span>
+        <div class="flex flex-col">
+          <span class="font-semibold text-xs text-on-surface">MediRaty 0% oraz odroczenie płatności</span>
+          <span class="text-[11px] text-on-surface-variant mt-0.5">Dziel koszty leczenia na 12 rat bez prowizji</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Filter Tabs (WCAG 2.2 Tablist with Roving Tabindex) -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-4 reveal" role="tablist" aria-label="Kategorie zabiegów w cenniku" id="price-tab-list">
+      <button
+        id="tab-all"
+        role="tab"
+        aria-selected="true"
+        tabindex="0"
+        aria-controls="price-card-grid"
+        data-filter="wszystkie"
+        class="price-tab-btn px-5 py-2.5 rounded-full bg-primary-container text-on-primary text-xs font-semibold whitespace-nowrap transition-all shadow-sm btn-tactile min-h-[44px] focus:outline-none"
+        type="button"
+      >
+        Wszystkie procedury
+      </button>
+      <button
+        id="tab-profilaktyka"
+        role="tab"
+        aria-selected="false"
+        tabindex="-1"
+        aria-controls="price-card-grid"
+        data-filter="profilaktyka"
+        class="price-tab-btn px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface text-xs font-medium whitespace-nowrap hover:bg-surface-container transition-all btn-tactile min-h-[44px] focus:outline-none"
+        type="button"
+      >
+        Stomatologia Zachowawcza &amp; Higiena
+      </button>
+      <button
+        id="tab-implanty"
+        role="tab"
+        aria-selected="false"
+        tabindex="-1"
+        aria-controls="price-card-grid"
+        data-filter="implanty"
+        class="price-tab-btn px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface text-xs font-medium whitespace-nowrap hover:bg-surface-container transition-all btn-tactile min-h-[44px] focus:outline-none"
+        type="button"
+      >
+        Implanty &amp; Chirurgia
+      </button>
+      <button
+        id="tab-estetyka"
+        role="tab"
+        aria-selected="false"
+        tabindex="-1"
+        aria-controls="price-card-grid"
+        data-filter="estetyka"
+        class="price-tab-btn px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface text-xs font-medium whitespace-nowrap hover:bg-surface-container transition-all btn-tactile min-h-[44px] focus:outline-none"
+        type="button"
+      >
+        Estetyka &amp; Licówki
+      </button>
+      <button
+        id="tab-endodoncja"
+        role="tab"
+        aria-selected="false"
+        tabindex="-1"
+        aria-controls="price-card-grid"
+        data-filter="endodoncja"
+        class="price-tab-btn px-5 py-2.5 rounded-full bg-surface-container-low text-on-surface text-xs font-medium whitespace-nowrap hover:bg-surface-container transition-all btn-tactile min-h-[44px] focus:outline-none"
+        type="button"
+      >
+        Endodoncja Mikroskopowa
+      </button>
+    </div>
+
+    <!-- Live Announcer for Filter Changes (WCAG 4.1.3 Status Messages) -->
+    <div id="price-filter-announcer" class="sr-only" aria-live="polite" role="status">Wyświetlono wszystkie procedury (6 pozycji)</div>
+
+    <!-- Price Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="price-card-grid" role="tabpanel" aria-labelledby="tab-all" tabindex="0">
+      <!-- Card 1 -->
+      <div class="price-item p-8 rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between border border-surface-container/60 card-lift reveal" data-category="profilaktyka">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-surface-container-low text-xs text-secondary font-semibold">
+              Zachowawcza
+            </span>
+            <span class="text-xs text-on-surface-variant flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" aria-hidden="true">schedule</span> 30-40 min
+            </span>
+          </div>
+          <h3 class="font-headline-sm text-lg font-semibold text-on-surface leading-snug">
+            Przegląd z kamerą wewnątrzustną + plan leczenia
+          </h3>
+          <p class="text-xs text-on-surface-variant mt-2.5 leading-relaxed">
+            Szczegółowa ocena 32 zębów, zdjęcia makro w jakości 4K, indywidualny kosztorys i harmonogram wizyt.
+          </p>
+        </div>
+        <div class="mt-8 pt-5 border-t border-surface-container-low">
+          <div class="flex items-baseline justify-between mb-5">
+            <span class="font-bold text-2xl text-on-surface">200 zł</span>
+            <span class="text-xs text-secondary font-medium">0 zł przy podjęciu leczenia</span>
+          </div>
+          <a
+            class="w-full py-3 rounded-full bg-surface-container-low hover:bg-secondary hover:text-on-secondary text-secondary text-xs font-semibold flex items-center justify-center gap-2 transition-all btn-tactile min-h-[44px]"
+            href="#rezerwacja"
+            aria-label="Umów konsultację: Przegląd z kamerą wewnątrzustną + plan leczenia"
+          >
+            <span>Umów konsultację</span>
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="price-item p-8 rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between border border-surface-container/60 card-lift reveal" data-category="profilaktyka">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-surface-container-low text-xs text-secondary font-semibold">
+              Profilaktyka
+            </span>
+            <span class="text-xs text-on-surface-variant flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" aria-hidden="true">schedule</span> 60 min
+            </span>
+          </div>
+          <h3 class="font-headline-sm text-lg font-semibold text-on-surface leading-snug">
+            Kompleksowy pakiet higienizacyjny Premium
+          </h3>
+          <p class="text-xs text-on-surface-variant mt-2.5 leading-relaxed">
+            Usuwanie kamienia (skaling piezoelektryczny), piaskowanie Airflow pudrem erytrytolowym, polerowanie pastą diamentową oraz fluoryzacja.
+          </p>
+        </div>
+        <div class="mt-8 pt-5 border-t border-surface-container-low">
+          <div class="flex items-baseline justify-between mb-5">
+            <span class="font-bold text-2xl text-on-surface">420 zł</span>
+            <span class="text-xs text-on-surface-variant">Cena za komplet</span>
+          </div>
+          <a
+            class="w-full py-3 rounded-full bg-surface-container-low hover:bg-secondary hover:text-on-secondary text-secondary text-xs font-semibold flex items-center justify-center gap-2 transition-all btn-tactile min-h-[44px]"
+            href="#rezerwacja"
+            aria-label="Zarezerwuj zabieg: Kompleksowy pakiet higienizacyjny Premium"
+          >
+            <span>Zarezerwuj zabieg</span>
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="price-item p-8 rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between border border-surface-container/60 card-lift reveal" data-category="estetyka">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-surface-container-low text-xs text-secondary font-semibold">
+              Wybielanie
+            </span>
+            <span class="text-xs text-on-surface-variant flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" aria-hidden="true">schedule</span> 75 min
+            </span>
+          </div>
+          <h3 class="font-headline-sm text-lg font-semibold text-on-surface leading-snug">
+            Wybielanie lampą Beyond Polus Advanced
+          </h3>
+          <p class="text-xs text-on-surface-variant mt-2.5 leading-relaxed">
+            Rozjaśnienie od 5 do 9 tonów na jednej wizycie. Zabezpieczenie szkliwa preparatem z hydroksyapatytem eliminującym nadwrażliwość.
+          </p>
+        </div>
+        <div class="mt-8 pt-5 border-t border-surface-container-low">
+          <div class="flex items-baseline justify-between mb-5">
+            <span class="font-bold text-2xl text-on-surface">1 350 zł</span>
+            <span class="text-xs text-on-surface-variant">Gwarancja odcienia</span>
+          </div>
+          <a
+            class="w-full py-3 rounded-full bg-surface-container-low hover:bg-secondary hover:text-on-secondary text-secondary text-xs font-semibold flex items-center justify-center gap-2 transition-all btn-tactile min-h-[44px]"
+            href="#rezerwacja"
+            aria-label="Wybierz termin: Wybielanie lampą Beyond Polus Advanced"
+          >
+            <span>Wybierz termin</span>
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="price-item p-8 rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between border border-surface-container/60 card-lift reveal" data-category="implanty">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-surface-container-low text-xs text-secondary font-semibold">
+              Chirurgia 3D
+            </span>
+            <span class="text-xs text-on-surface-variant flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" aria-hidden="true">schedule</span> 60 min
+            </span>
+          </div>
+          <h3 class="font-headline-sm text-lg font-semibold text-on-surface leading-snug">
+            Implant tytanowy klasy Premium (Straumann / Nobel)
+          </h3>
+          <p class="text-xs text-on-surface-variant mt-2.5 leading-relaxed">
+            Hydrofilna powierzchnia SLActive, nawigacja komputerowa szablonem chirurgicznym, paszport implantologiczny i znieczulenie The Wand.
+          </p>
+        </div>
+        <div class="mt-8 pt-5 border-t border-surface-container-low">
+          <div class="flex items-baseline justify-between mb-5">
+            <span class="font-bold text-2xl text-on-surface">od 3 200 zł</span>
+            <span class="text-xs text-secondary font-medium">10 lat gwarancji</span>
+          </div>
+          <a
+            class="w-full py-3 rounded-full bg-secondary hover:bg-on-secondary-container text-on-secondary text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-sm btn-tactile min-h-[44px]"
+            href="#rezerwacja"
+            aria-label="Umów konsultację implantologiczną: Implant tytanowy klasy Premium"
+          >
+            <span>Konsultacja implantologiczna</span>
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="price-item p-8 rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between border border-surface-container/60 card-lift reveal" data-category="estetyka">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-surface-container-low text-xs text-secondary font-semibold">
+              Protetyka Cyfrowa
+            </span>
+            <span class="text-xs text-on-surface-variant flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" aria-hidden="true">schedule</span> 2 wizyty
+            </span>
+          </div>
+          <h3 class="font-headline-sm text-lg font-semibold text-on-surface leading-snug">
+            Korona pełnoceramiczna cyfrowa CAD/CAM
+          </h3>
+          <p class="text-xs text-on-surface-variant mt-2.5 leading-relaxed">
+            Frezowana z monolitycznego dwukrzemianu litu (e.max). Naturalna przezierność, idealne dopasowanie brzeżne ze skanu 3D.
+          </p>
+        </div>
+        <div class="mt-8 pt-5 border-t border-surface-container-low">
+          <div class="flex items-baseline justify-between mb-5">
+            <span class="font-bold text-2xl text-on-surface">2 100 zł</span>
+            <span class="text-xs text-on-surface-variant">Bez wycisków masowych</span>
+          </div>
+          <a
+            class="w-full py-3 rounded-full bg-surface-container-low hover:bg-secondary hover:text-on-secondary text-secondary text-xs font-semibold flex items-center justify-center gap-2 transition-all btn-tactile min-h-[44px]"
+            href="#rezerwacja"
+            aria-label="Umów skanowanie: Korona pełnoceramiczna cyfrowa CAD/CAM"
+          >
+            <span>Umów skanowanie</span>
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="price-item p-8 rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between border border-surface-container/60 card-lift reveal" data-category="endodoncja">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-surface-container-low text-xs text-secondary font-semibold">
+              Mikroendodoncja
+            </span>
+            <span class="text-xs text-on-surface-variant flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm" aria-hidden="true">schedule</span> 90 min
+            </span>
+          </div>
+          <h3 class="font-headline-sm text-lg font-semibold text-on-surface leading-snug">
+            Leczenie kanałowe pod mikroskopem Zeiss
+          </h3>
+          <p class="text-xs text-on-surface-variant mt-2.5 leading-relaxed">
+            Pakiet zawiera: znieczulenie komputerowe, koferdam, mechaniczne opracowanie kanału, wypełnienie ciepłą gutaperką oraz RTG kontrolne.
+          </p>
+        </div>
+        <div class="mt-8 pt-5 border-t border-surface-container-low">
+          <div class="flex items-baseline justify-between mb-5">
+            <span class="font-bold text-2xl text-on-surface">950 zł</span>
+            <span class="text-xs text-on-surface-variant">Za 1 kanał (komplet)</span>
+          </div>
+          <a
+            class="w-full py-3 rounded-full bg-surface-container-low hover:bg-secondary hover:text-on-secondary text-secondary text-xs font-semibold flex items-center justify-center gap-2 transition-all btn-tactile min-h-[44px]"
+            href="#rezerwacja"
+            aria-label="Umów zabieg mikroskopowy: Leczenie kanałowe pod mikroskopem Zeiss"
+          >
+            <span>Ratuj ząb mikroskopowo</span>
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Financing & Partners Strip -->
+    <div class="mt-14 p-6 lg:p-8 rounded-3xl bg-surface-container-low flex flex-col lg:flex-row items-center justify-between gap-6 border border-surface-container/60 reveal">
+      <div class="space-y-1">
+        <div class="font-semibold text-sm text-on-surface">
+          Partnerzy medyczni i finansowanie leczenia
+        </div>
+        <div class="text-xs text-on-surface-variant max-w-xl leading-relaxed">
+          Honorujemy pakiety prywatnej opieki zdrowotnej oraz oferujemy bezpośrednie rozliczenia ratalne bez prowizji.
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="px-4 py-2 rounded-full bg-surface-container-lowest text-on-surface text-xs font-semibold shadow-sm border border-surface-container/40">
+          MediRaty 0%
+        </span>
+        <span class="px-4 py-2 rounded-full bg-surface-container-lowest text-on-surface text-xs font-semibold shadow-sm border border-surface-container/40">
+          Twisto & Klarna
+        </span>
+        <span class="px-4 py-2 rounded-full bg-surface-container-lowest text-on-surface text-xs font-semibold shadow-sm border border-surface-container/40">
+          LuxMed Dental
+        </span>
+        <span class="px-4 py-2 rounded-full bg-surface-container-lowest text-on-surface text-xs font-semibold shadow-sm border border-surface-container/40">
+          Medicover
+        </span>
+        <span class="px-4 py-2 rounded-full bg-surface-container-lowest text-on-surface text-xs font-semibold shadow-sm border border-surface-container/40">
+          Allianz
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.price-tab-btn'));
+  const tabList = document.getElementById('price-tab-list');
+  const items = Array.from(document.querySelectorAll<HTMLElement>('.price-item'));
+  const grid = document.getElementById('price-card-grid');
+  const announcer = document.getElementById('price-filter-announcer');
+
+  function applyFilter(category: string, activeBtn: HTMLButtonElement) {
+    tabs.forEach(tab => {
+      const isSelected = tab === activeBtn;
+      tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+      tab.setAttribute('tabindex', isSelected ? '0' : '-1');
+      if (isSelected) {
+        tab.classList.remove('bg-surface-container-low', 'text-on-surface');
+        tab.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+      } else {
+        tab.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+        tab.classList.add('bg-surface-container-low', 'text-on-surface');
+      }
+    });
+
+    if (grid) {
+      grid.setAttribute('aria-labelledby', activeBtn.id);
+    }
+
+    let visibleCount = 0;
+    items.forEach(item => {
+      const match = category === 'wszystkie' || item.getAttribute('data-category') === category;
+      if (match) {
+        item.style.display = 'flex';
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.97)';
+        visibleCount++;
+        setTimeout(() => {
+          item.style.transition = 'opacity 250ms ease, transform 250ms ease';
+          item.style.opacity = '1';
+          item.style.transform = 'scale(1)';
+        }, 10);
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    if (announcer) {
+      announcer.textContent = `Wyświetlono kategorię: ${activeBtn.textContent?.trim() || ''} (${visibleCount} pozycji)`;
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const filter = tab.getAttribute('data-filter') || 'wszystkie';
+      applyFilter(filter, tab);
+    });
+  });
+
+  // WAI-ARIA Tablist Keyboard Navigation (ArrowRight / ArrowLeft / Home / End)
+  tabList?.addEventListener('keydown', (e: KeyboardEvent) => {
+    const currentIndex = tabs.findIndex(tab => tab === document.activeElement);
+    if (currentIndex === -1) return;
+
+    let targetIndex = -1;
+    if (e.key === 'ArrowRight') {
+      targetIndex = (currentIndex + 1) % tabs.length;
+    } else if (e.key === 'ArrowLeft') {
+      targetIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    } else if (e.key === 'Home') {
+      targetIndex = 0;
+    } else if (e.key === 'End') {
+      targetIndex = tabs.length - 1;
+    }
+
+    if (targetIndex !== -1) {
+      e.preventDefault();
+      const targetTab = tabs[targetIndex];
+      targetTab.focus();
+      const filter = targetTab.getAttribute('data-filter') || 'wszystkie';
+      applyFilter(filter, targetTab);
+    }
+  });
+</script>

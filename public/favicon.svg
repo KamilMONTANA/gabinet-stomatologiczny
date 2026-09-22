@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="favAuraGrad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00677F"/>
+      <stop offset="55%" stop-color="#008EA7"/>
+      <stop offset="100%" stop-color="#00B8D4"/>
+    </linearGradient>
+    <linearGradient id="favToothGrad" x1="14" y1="10" x2="34" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#004D5F"/>
+      <stop offset="100%" stop-color="#007B96"/>
+    </linearGradient>
+    <linearGradient id="favSparkleGrad" x1="32" y1="4" x2="42" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#00C2CB"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="48" height="48" rx="14" fill="#F0F9FB" stroke="#00677F" stroke-opacity="0.2" stroke-width="1.2"/>
+  <path d="M24 13.5C21.8 11.2 18.2 10.5 15.2 11.8C12.4 13 10.8 15.6 11 18.8C11.3 22.8 13.1 26.8 14.5 30.5C15.5 33.2 16.8 35.8 18.8 36.5C20.6 37.1 21.8 35.5 22.5 33.8C23.3 32 23.6 30 24 28.5C24.4 30 24.7 32 25.5 33.8C26.2 35.5 27.4 37.1 29.2 36.5C31.2 35.8 32.5 33.2 33.5 30.5C34.9 26.8 36.7 22.8 37 18.8C37.2 15.6 35.6 13 32.8 11.8C29.8 10.5 26.2 11.2 24 13.5Z" fill="url(#favToothGrad)"/>
+  <path d="M8.5 27C7 24 7.2 20.2 9.2 17.5C11.5 14.5 15.8 13.5 19.5 14.8" stroke="url(#favAuraGrad)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.85"/>
+  <path d="M39.5 21C41 24 40.8 27.8 38.8 30.5C36.5 33.5 32.2 34.5 28.5 33.2" stroke="url(#favAuraGrad)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.85"/>
+  <path d="M37 6.5C37 8.4 35.4 10 33.5 10C35.4 10 37 11.6 37 13.5C37 11.6 38.6 10 40.5 10C38.6 10 37 8.4 37 6.5Z" fill="url(#favSparkleGrad)"/>
+  <circle cx="37" cy="10" r="0.8" fill="#FFFFFF"/>
+</svg>

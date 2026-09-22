@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import BookingStepper from '../components/BookingStepper.astro';
+import PriceList from '../components/PriceList.astro';
+import Team from '../components/Team.astro';
+import Features from '../components/Features.astro';
+import AboutSection from '../components/AboutSection.astro';
+import Reviews from '../components/Reviews.astro';
+import ContactSection from '../components/ContactSection.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="AuraDent Clinique & Implanty | Warszawa — Nowoczesna Stomatologia i Implanty 3D"
+  description="AuraDent Warszawa — Bezstresowa stomatologia mikroskopowa, implantologia 3D, Digital Smile Design oraz pilny dyżur stomatologiczny 24/7. Znieczulenie The Wand, własna pracownia CBCT i zespół ekspertów."
+>
+  <!-- Fixed Header with Navigation and Emergency Bar -->
+  <Header />
+
+  <!-- Main Content Wrapper (padded top for fixed header, targetable by skip link) -->
+  <main id="main-content" tabindex="-1" class="w-full pt-28 bg-surface focus:outline-none">
+    <div class="flex flex-col w-full">
+      <!-- 1. HERO SECTION -->
+      <Hero />
+
+      <!-- 2. INTERACTIVE BOOKING STEPPER (MODUŁ NATYCHMIASTOWEJ REZERWACJI) -->
+      <BookingStepper />
+
+      <!-- 3. TRANSPARENT PRICE LIST SECTION (PRZEJRZYSTY CENNIK ZABIEGÓW) -->
+      <PriceList />
+
+      <!-- 4. MEET OUR SPECIALISTS (PREZENTACJA ZESPOŁU EKSPERTÓW) -->
+      <Team />
+
+      <!-- 5. WHY AURADENT (FILARY ZAUFANIA I KOMFORTU) -->
+      <Features />
+
+      <!-- 6. O KLINICE & ZABIEGI I TECHNOLOGIE -->
+      <AboutSection />
+
+      <!-- 7. OPINIE PACJENTÓW (ZAUFANIE I REZULTATY) -->
+      <Reviews />
+
+      <!-- 8. KONTAKT & LOKALIZACJA -->
+      <ContactSection />
+
+      <!-- 9. FINAL CTA / APPOINTMENT PROMPT BANNER -->
+      <CtaBanner />
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <Footer />
+</Layout>

@@ -1,0 +1,265 @@
+---
+---
+
+<header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-surface-container/40">
+  <!-- Top Announcement Bar -->
+  <div class="bg-primary-container text-on-primary font-label-sm text-label-sm py-2 px-6 lg:px-12">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-y-1">
+      <div class="flex items-center gap-space-lg flex-wrap">
+        <a href="#rezerwacja" class="flex items-center gap-1.5 text-secondary-container hover:text-white transition-colors">
+          <span class="material-symbols-outlined text-sm" aria-hidden="true">emergency</span>
+          <span class="font-medium">Pilne przyjęcia bólowe 24/7</span>
+        </a>
+        <a href="tel:+48228901234" class="hidden sm:inline-flex items-center gap-1.5 text-surface-variant hover:text-white transition-colors">
+          <span class="material-symbols-outlined text-sm" aria-hidden="true">call</span>
+          <span>+48 22 890 12 34</span>
+        </a>
+        <span class="hidden md:inline-flex items-center gap-1.5 text-surface-variant">
+          <span class="material-symbols-outlined text-sm" aria-hidden="true">location_on</span>
+          <span>ul. Mokotowska 42, Warszawa</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <span class="hidden lg:inline-flex items-center gap-1 text-surface-variant">
+          <span class="material-symbols-outlined text-sm" aria-hidden="true">schedule</span>
+          <span>Pn-Pt 08:00 - 20:00</span>
+        </span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-secondary text-on-secondary text-[11px] font-semibold tracking-wider uppercase">
+          ISO 9001:2015
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-lg">
+    <!-- Logo -->
+    <a href="#" class="flex items-center shrink-0 group focus:outline-none" aria-label="AuraDent Clinique & Implanty — Strona główna">
+      <img
+        alt="AuraDent Logo"
+        class="h-9 sm:h-10 md:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+        src="/logo.svg"
+      />
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden xl:flex items-center gap-2" id="desktop-nav" aria-label="Nawigacja główna">
+      <a
+        aria-current="page"
+        class="nav-link px-4 py-2 transition-all bg-surface-container-high text-on-surface font-semibold rounded-full whitespace-nowrap text-sm"
+        data-path="o-klinice"
+        href="#o-klinice"
+      >
+        O klinice
+      </a>
+      <a
+        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all whitespace-nowrap"
+        data-path="zabiegi-i-technologie"
+        href="#zabiegi-i-technologie"
+      >
+        Zabiegi
+      </a>
+      <a
+        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all whitespace-nowrap"
+        data-path="cennik"
+        href="#cennik"
+      >
+        Cennik
+      </a>
+      <a
+        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all whitespace-nowrap"
+        data-path="nasz-zespol"
+        href="#nasz-zespol"
+      >
+        Zespół
+      </a>
+      <a
+        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all whitespace-nowrap"
+        data-path="opinie-pacjentow"
+        href="#opinie-pacjentow"
+      >
+        Opinie
+      </a>
+      <a
+        class="nav-link px-4 py-2 rounded-full text-sm font-medium text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all whitespace-nowrap"
+        data-path="kontakt"
+        href="#kontakt"
+      >
+        Kontakt
+      </a>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="flex items-center gap-3">
+      <!-- Phone Call Link -->
+      <a
+        class="hidden md:inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-medium transition-all btn-tactile text-xs min-h-[44px]"
+        href="tel:+48228901234"
+        aria-label="Zadzwoń do kliniki: +48 22 890 12 34"
+      >
+        <span class="material-symbols-outlined text-secondary text-base" aria-hidden="true">call</span>
+        <span class="font-semibold tracking-wide">+48 22 890 12 34</span>
+      </a>
+
+      <!-- Primary Booking CTA -->
+      <a
+        href="#rezerwacja"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary hover:bg-on-secondary-container text-on-secondary font-semibold text-xs transition-all shadow-sm btn-tactile min-h-[44px]"
+      >
+        <span class="material-symbols-outlined text-base" aria-hidden="true">calendar_month</span>
+        <span>Zarezerwuj wizytę</span>
+      </a>
+
+      <!-- Mobile Hamburger Button (44x44 minimum target size) -->
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        aria-label="Otwórz menu nawigacji"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+        aria-haspopup="true"
+        class="xl:hidden w-11 h-11 rounded-xl text-on-surface hover:bg-surface-container-low transition-colors flex items-center justify-center"
+      >
+        <span class="material-symbols-outlined text-2xl" id="menu-icon" aria-hidden="true">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav
+    id="mobile-drawer"
+    aria-label="Nawigacja mobilna"
+    aria-hidden="true"
+    class="xl:hidden fixed inset-x-0 top-full bg-surface-container-lowest/98 backdrop-blur-2xl border-b border-surface-container shadow-2xl transition-all duration-300 ease-out-expo transform -translate-y-[150%] opacity-0 pointer-events-none invisible"
+  >
+    <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-2">
+      <a href="#o-klinice" class="mobile-nav-link px-4 py-3 rounded-2xl text-on-surface font-semibold hover:bg-surface-container-low transition-colors flex items-center justify-between text-sm min-h-[44px]">
+        <span>O klinice</span>
+        <span class="material-symbols-outlined text-secondary" aria-hidden="true">chevron_right</span>
+      </a>
+      <a href="#zabiegi-i-technologie" class="mobile-nav-link px-4 py-3 rounded-2xl text-on-surface font-semibold hover:bg-surface-container-low transition-colors flex items-center justify-between text-sm min-h-[44px]">
+        <span>Zabiegi i technologie</span>
+        <span class="material-symbols-outlined text-secondary" aria-hidden="true">chevron_right</span>
+      </a>
+      <a href="#cennik" class="mobile-nav-link px-4 py-3 rounded-2xl text-on-surface font-semibold hover:bg-surface-container-low transition-colors flex items-center justify-between text-sm min-h-[44px]">
+        <span>Cennik zabiegów</span>
+        <span class="material-symbols-outlined text-secondary" aria-hidden="true">chevron_right</span>
+      </a>
+      <a href="#nasz-zespol" class="mobile-nav-link px-4 py-3 rounded-2xl text-on-surface font-semibold hover:bg-surface-container-low transition-colors flex items-center justify-between text-sm min-h-[44px]">
+        <span>Nasz zespół</span>
+        <span class="material-symbols-outlined text-secondary" aria-hidden="true">chevron_right</span>
+      </a>
+      <a href="#opinie-pacjentow" class="mobile-nav-link px-4 py-3 rounded-2xl text-on-surface font-semibold hover:bg-surface-container-low transition-colors flex items-center justify-between text-sm min-h-[44px]">
+        <span>Opinie pacjentów</span>
+        <span class="material-symbols-outlined text-secondary" aria-hidden="true">chevron_right</span>
+      </a>
+      <a href="#kontakt" class="mobile-nav-link px-4 py-3 rounded-2xl text-on-surface font-semibold hover:bg-surface-container-low transition-colors flex items-center justify-between text-sm min-h-[44px]">
+        <span>Kontakt i dojazd</span>
+        <span class="material-symbols-outlined text-secondary" aria-hidden="true">chevron_right</span>
+      </a>
+
+      <div class="pt-4 border-t border-surface-container flex flex-col gap-3">
+        <a
+          href="#rezerwacja"
+          class="mobile-nav-link w-full py-3.5 rounded-full bg-secondary text-on-secondary font-semibold text-center flex items-center justify-center gap-2 shadow-md btn-tactile text-sm min-h-[44px]"
+        >
+          <span class="material-symbols-outlined text-lg" aria-hidden="true">calendar_add_on</span>
+          <span>Umów wizytę online</span>
+        </a>
+        <a
+          href="tel:+48228901234"
+          aria-label="Zadzwoń do kliniki pod numer +48 22 890 12 34"
+          class="w-full py-3 rounded-full bg-surface-container-low text-on-surface font-semibold text-center flex items-center justify-center gap-2 text-sm btn-tactile min-h-[44px]"
+        >
+          <span class="material-symbols-outlined text-secondary text-lg" aria-hidden="true">call</span>
+          <span>Zadzwoń: +48 22 890 12 34</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const menuIcon = document.getElementById('menu-icon');
+
+  function closeMobileDrawer() {
+    if (mobileDrawer && mobileMenuBtn && menuIcon) {
+      mobileDrawer.classList.add('-translate-y-[150%]', 'opacity-0', 'pointer-events-none', 'invisible');
+      mobileDrawer.classList.remove('translate-y-0', 'opacity-100', 'visible');
+      mobileDrawer.setAttribute('aria-hidden', 'true');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenuBtn.setAttribute('aria-label', 'Otwórz menu nawigacji');
+      menuIcon.textContent = 'menu';
+    }
+  }
+
+  function openMobileDrawer() {
+    if (mobileDrawer && mobileMenuBtn && menuIcon) {
+      mobileDrawer.classList.remove('-translate-y-[150%]', 'opacity-0', 'pointer-events-none', 'invisible');
+      mobileDrawer.classList.add('translate-y-0', 'opacity-100', 'visible');
+      mobileDrawer.setAttribute('aria-hidden', 'false');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      mobileMenuBtn.setAttribute('aria-label', 'Zamknij menu nawigacji');
+      menuIcon.textContent = 'close';
+      
+      const firstLink = mobileDrawer.querySelector<HTMLAnchorElement>('.mobile-nav-link');
+      firstLink?.focus();
+    }
+  }
+
+  if (mobileMenuBtn && mobileDrawer && menuIcon) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        closeMobileDrawer();
+      } else {
+        openMobileDrawer();
+      }
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMobileDrawer();
+      });
+    });
+
+    // Close on Escape key (WCAG 2.1.2 No Keyboard Trap)
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileMenuBtn.getAttribute('aria-expanded') === 'true') {
+        closeMobileDrawer();
+        mobileMenuBtn.focus();
+      }
+    });
+  }
+
+  // Active navigation highlight on scroll
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('#desktop-nav .nav-link');
+  const sectionIds = ['o-klinice', 'zabiegi-i-technologie', 'cennik', 'nasz-zespol', 'opinie-pacjentow', 'kontakt'];
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPosition = window.scrollY + 200;
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollPosition) {
+        current = id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      const path = link.getAttribute('data-path');
+      if (path === current) {
+        link.classList.add('bg-surface-container-high', 'text-on-surface', 'font-semibold');
+        link.classList.remove('text-on-surface-variant');
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.classList.remove('bg-surface-container-high', 'font-semibold');
+        link.classList.add('text-on-surface-variant');
+        link.removeAttribute('aria-current');
+      }
+    });
+  });
+</script>

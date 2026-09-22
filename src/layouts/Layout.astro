@@ -1,0 +1,359 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "AuraDent Clinique & Implanty | Warszawa - Nowoczesna Stomatologia i Implanty",
+  description = "AuraDent Warszawa - Bezstresowa stomatologia mikroskopowa, implantologia 3D i cyfrowe projektowanie uśmiechu. Znieczulenie The Wand, własna pracownia CBCT i dyżur bólowy.",
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Montserrat & Material Symbols Outlined Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN with exact Design System Configuration -->
+    <script is:inline src="https://cdn.tailwindcss.com"></script>
+    <script is:inline id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#213145",
+              "on-tertiary-fixed-variant": "#574500",
+              "on-tertiary-fixed": "#241a00",
+              "primary-fixed": "#d7e3ff",
+              "on-error": "#ffffff",
+              "surface-container-low": "#eff4ff",
+              "tertiary-fixed": "#ffe088",
+              "surface-variant": "#d3e4fe",
+              "primary-fixed-dim": "#b8c7e6",
+              "on-surface-variant": "#44474d",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#394761",
+              "on-surface": "#0b1c30",
+              "surface-container-high": "#dce9ff",
+              "tertiary-container": "#cca830",
+              error: "#ba1a1a",
+              "on-primary-container": "#7886a3",
+              "error-container": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              background: "#f8f9ff",
+              primary: "#000412",
+              "tertiary-fixed-dim": "#e9c349",
+              "surface-dim": "#cbdbf5",
+              "on-secondary-container": "#004666",
+              "surface-bright": "#f8f9ff",
+              tertiary: "#735c00",
+              "on-secondary-fixed-variant": "#004c6e",
+              secondary: "#006591",
+              outline: "#75777e",
+              "on-background": "#0b1c30",
+              "surface-container-highest": "#d3e4fe",
+              "inverse-primary": "#b8c7e6",
+              "outline-variant": "#c5c6ce",
+              "primary-container": "#0f1e36",
+              "surface-container": "#e5eeff",
+              "secondary-fixed-dim": "#89ceff",
+              "on-tertiary-container": "#4f3e00",
+              "secondary-container": "#39b8fd",
+              "surface-tint": "#515f7a",
+              "on-secondary-fixed": "#001e2f",
+              "on-primary-fixed": "#0c1b33",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              surface: "#f8f9ff",
+              "secondary-fixed": "#c9e6ff",
+              "inverse-on-surface": "#eaf1ff",
+              "on-error-container": "#93000a",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1rem",
+              "3xl": "1.5rem",
+              full: "9999px",
+            },
+            spacing: {
+              "space-xs": "0.25rem",
+              "space-sm": "0.5rem",
+              "space-md": "1rem",
+              "space-lg": "1.5rem",
+              "space-xl": "2.5rem",
+              margin: "1.5rem",
+              gutter: "1.5rem",
+              "gutter-desktop": "2rem",
+              "margin-desktop": "4rem",
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              "label-md": ["Montserrat", "sans-serif"],
+              "headline-md": ["Montserrat", "sans-serif"],
+              "headline-lg": ["Montserrat", "sans-serif"],
+              "display-lg": ["Montserrat", "sans-serif"],
+              "body-xl": ["Montserrat", "sans-serif"],
+              "headline-xl": ["Montserrat", "sans-serif"],
+              "display-lg-mobile": ["Montserrat", "sans-serif"],
+              "label-sm": ["Montserrat", "sans-serif"],
+              "headline-sm": ["Montserrat", "sans-serif"],
+              "label-lg": ["Montserrat", "sans-serif"],
+              "headline-xl-mobile": ["Montserrat", "sans-serif"],
+              "body-lg": ["Montserrat", "sans-serif"],
+              "body-md": ["Montserrat", "sans-serif"],
+            },
+            fontSize: {
+              "label-sm": [
+                "11px",
+                { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "700" },
+              ],
+              "label-md": [
+                "13px",
+                { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "600" },
+              ],
+              "label-lg": [
+                "15px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" },
+              ],
+              "body-md": [
+                "14px",
+                { lineHeight: "22px", fontWeight: "400" },
+              ],
+              "body-lg": [
+                "16px",
+                { lineHeight: "26px", fontWeight: "400" },
+              ],
+              "body-xl": [
+                "18px",
+                { lineHeight: "28px", fontWeight: "400" },
+              ],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", fontWeight: "600" },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "headline-lg": [
+                "32px",
+                { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "500" },
+              ],
+              "headline-xl": [
+                "40px",
+                { lineHeight: "48px", letterSpacing: "-0.015em", fontWeight: "500" },
+              ],
+              "headline-xl-mobile": [
+                "30px",
+                { lineHeight: "38px", letterSpacing: "-0.01em", fontWeight: "500" },
+              ],
+              "display-lg": [
+                "56px",
+                { lineHeight: "64px", letterSpacing: "-0.02em", fontWeight: "500" },
+              ],
+              "display-lg-mobile": [
+                "38px",
+                { lineHeight: "44px", letterSpacing: "-0.01em", fontWeight: "500" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style is:global>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+          scroll-behavior: smooth;
+        }
+        body {
+          overscroll-behavior: none;
+          font-family: 'Montserrat', sans-serif !important;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f8f9ff;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbdbf5;
+        border-radius: 9999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #006591;
+      }
+
+      .material-symbols-outlined {
+        font-family: 'Material Symbols Outlined' !important;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: 'liga';
+        font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .material-symbols-outlined.filled {
+        font-variation-settings: 'FILL' 1, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+      }
+
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      span:not(.material-symbols-outlined),
+      a,
+      button,
+      input,
+      select,
+      textarea,
+      div:not(.material-symbols-outlined) {
+        font-family: 'Montserrat', sans-serif !important;
+      }
+
+      /* Natural authored animations & easing */
+      .ease-out-expo {
+        transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .btn-tactile {
+        transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms cubic-bezier(0.16, 1, 0.3, 1), background-color 180ms ease, color 180ms ease;
+      }
+      .btn-tactile:hover {
+        transform: translateY(-1.5px);
+      }
+      .btn-tactile:active {
+        transform: translateY(0.5px) scale(0.99);
+      }
+
+      .card-lift {
+        transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 280ms cubic-bezier(0.16, 1, 0.3, 1), border-color 280ms ease;
+      }
+      .card-lift:hover {
+        transform: translateY(-3px);
+      }
+
+      /* Scroll reveal */
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1), transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .reveal.is-revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* WCAG 2.2 Level AA Focus Appearance & Visibility */
+      :focus-visible {
+        outline: 2px solid #00677F !important;
+        outline-offset: 3px !important;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid #00677F !important;
+        outline-offset: 2px !important;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+        .btn-tactile, .card-lift {
+          transition: none !important;
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-primary">
+    <!-- Skip to main content (WCAG 2.4.1 Bypass Blocks) -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3.5 focus:bg-primary-container focus:text-white focus:rounded-2xl focus:shadow-2xl focus:font-semibold focus:text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
+    >
+      Przejdź do treści głównej
+    </a>
+
+    <slot />
+
+    <script>
+      // Intersection observer for purposeful, fluid scroll reveal
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      } else {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-revealed'));
+      }
+    </script>
+  </body>
+</html>

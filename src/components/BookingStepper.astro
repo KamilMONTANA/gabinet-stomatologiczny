@@ -1,0 +1,815 @@
+---
+---
+
+<section class="w-full py-20 lg:py-28 bg-surface-container-low" id="rezerwacja">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Header without AI kicker -->
+    <div class="max-w-3xl mb-12 space-y-3 reveal">
+      <h2 class="font-headline-xl text-headline-xl text-on-surface font-normal leading-tight text-3xl lg:text-4xl">
+        Zarezerwuj wizytę w <span class="text-secondary font-semibold">60 sekund</span>
+      </h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+        Wybierz procedurę, dogodny termin i potwierdź wizytę bez oczekiwania na infolinii. Otrzymasz natychmiastowe potwierdzenie SMS z przypomnieniem i kodem do gabinetu.
+      </p>
+    </div>
+
+    <!-- Stepper Segmented Tabs (WCAG 2.2 Tablist with Roving Tabindex) -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8" role="tablist" aria-label="Etapy rezerwacji wizyty" id="booking-step-tabs">
+      <button
+        id="step-tab-1"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        tabindex="0"
+        aria-controls="step-content-1"
+        data-step="1"
+        class="step-tab-btn flex items-center gap-2.5 px-6 py-3 rounded-full bg-primary-container text-on-primary font-semibold text-xs whitespace-nowrap transition-all shadow-sm btn-tactile min-h-[44px] focus:outline-none"
+      >
+        <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px] font-bold" aria-hidden="true">1</span>
+        <span>Wybór procedury</span>
+      </button>
+
+      <button
+        id="step-tab-2"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        tabindex="-1"
+        aria-controls="step-content-2"
+        data-step="2"
+        class="step-tab-btn flex items-center gap-2.5 px-6 py-3 rounded-full bg-surface-container text-on-surface font-medium text-xs whitespace-nowrap hover:bg-surface-container-high transition-all btn-tactile min-h-[44px] focus:outline-none"
+      >
+        <span class="w-5 h-5 rounded-full bg-surface-container-high flex items-center justify-center text-[10px] font-bold" aria-hidden="true">2</span>
+        <span>Termin &amp; godzina</span>
+      </button>
+
+      <button
+        id="step-tab-3"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        tabindex="-1"
+        aria-controls="step-content-3"
+        data-step="3"
+        class="step-tab-btn flex items-center gap-2.5 px-6 py-3 rounded-full bg-surface-container text-on-surface font-medium text-xs whitespace-nowrap hover:bg-surface-container-high transition-all btn-tactile min-h-[44px] focus:outline-none"
+      >
+        <span class="w-5 h-5 rounded-full bg-surface-container-high flex items-center justify-center text-[10px] font-bold" aria-hidden="true">3</span>
+        <span>Dane pacjenta &amp; potwierdzenie</span>
+      </button>
+    </div>
+
+    <!-- Screen Reader Live Announcer -->
+    <div id="booking-live-announcer" class="sr-only" aria-live="polite" role="status">Krok 1: Wybór procedury</div>
+
+    <!-- Stepper Container -->
+    <div class="bg-surface-container-lowest rounded-3xl p-6 md:p-10 shadow-sm border border-surface-container/60 reveal">
+      
+      <!-- STEP 1: Wybór procedury -->
+      <div id="step-content-1" role="tabpanel" aria-labelledby="step-tab-1" tabindex="0" class="step-panel space-y-8 focus:outline-none">
+        <div>
+          <h3 class="font-headline-sm text-lg font-semibold text-on-surface">
+            Wybierz procedurę lub powód konsultacji
+          </h3>
+          <p class="font-body-md text-xs text-on-surface-variant mt-1">
+            W przypadku podjęcia leczenia w klinice koszt pierwszej konsultacji odliczamy od całości procedury.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="procedure-selector" role="radiogroup" aria-label="Wybór procedury stomatologicznej">
+          <!-- Item 1 -->
+          <button
+            type="button"
+            role="radio"
+            aria-checked="true"
+            tabindex="0"
+            class="procedure-card text-left p-6 rounded-2xl border-2 border-secondary bg-surface-container-low/40 cursor-pointer transition-all card-lift relative group selected-card focus:outline-none"
+            data-procedure="Przegląd z kamerą wewnątrzustną + plan leczenia"
+            data-price="200 zł (0 zł przy leczeniu)"
+            data-duration="30-40 min"
+          >
+            <div class="flex items-center justify-between mb-3">
+              <span class="p-2 rounded-xl bg-surface-container text-secondary group-hover:bg-secondary group-hover:text-white transition-colors" aria-hidden="true">
+                <span class="material-symbols-outlined text-lg">biotech</span>
+              </span>
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary">
+                30-40 min
+              </span>
+            </div>
+            <h4 class="font-semibold text-sm text-on-surface">Przegląd z kamerą 4K + Plan</h4>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+              Dokładna ocena 32 zębów, zdjęcia makro, indywidualny kosztorys i harmonogram.
+            </p>
+            <div class="mt-4 pt-3 border-t border-surface-container/60 flex items-center justify-between">
+              <span class="font-bold text-sm text-on-surface">200 zł</span>
+              <span class="text-[11px] text-secondary font-medium">0 zł przy terapii</span>
+            </div>
+          </button>
+
+          <!-- Item 2 -->
+          <button
+            type="button"
+            role="radio"
+            aria-checked="false"
+            tabindex="-1"
+            class="procedure-card text-left p-6 rounded-2xl border-2 border-surface-container bg-surface hover:border-secondary cursor-pointer transition-all card-lift relative group focus:outline-none"
+            data-procedure="Kompleksowy pakiet higienizacyjny Premium"
+            data-price="420 zł"
+            data-duration="60 min"
+          >
+            <div class="flex items-center justify-between mb-3">
+              <span class="p-2 rounded-xl bg-surface-container text-secondary group-hover:bg-secondary group-hover:text-white transition-colors" aria-hidden="true">
+                <span class="material-symbols-outlined text-lg">clean_hands</span>
+              </span>
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary">
+                60 min
+              </span>
+            </div>
+            <h4 class="font-semibold text-sm text-on-surface">Higienizacja Premium GBT</h4>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+              Skaling piezoelektryczny, piaskowanie Airflow pudrem erytrytolowym i fluoryzacja.
+            </p>
+            <div class="mt-4 pt-3 border-t border-surface-container/60 flex items-center justify-between">
+              <span class="font-bold text-sm text-on-surface">420 zł</span>
+              <span class="text-[11px] text-on-surface-variant">Kompletny pakiet</span>
+            </div>
+          </button>
+
+          <!-- Item 3 -->
+          <button
+            type="button"
+            role="radio"
+            aria-checked="false"
+            tabindex="-1"
+            class="procedure-card text-left p-6 rounded-2xl border-2 border-surface-container bg-surface hover:border-secondary cursor-pointer transition-all card-lift relative group focus:outline-none"
+            data-procedure="Konsultacja implantologiczna 3D z planem"
+            data-price="od 3 200 zł"
+            data-duration="60 min"
+          >
+            <div class="flex items-center justify-between mb-3">
+              <span class="p-2 rounded-xl bg-surface-container text-secondary group-hover:bg-secondary group-hover:text-white transition-colors" aria-hidden="true">
+                <span class="material-symbols-outlined text-lg">dentistry</span>
+              </span>
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary">
+                60 min
+              </span>
+            </div>
+            <h4 class="font-semibold text-sm text-on-surface">Konsultacja Implanty 3D</h4>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+              Nawigacja szablonem chirurgicznym, paszport Straumann, znieczulenie The Wand.
+            </p>
+            <div class="mt-4 pt-3 border-t border-surface-container/60 flex items-center justify-between">
+              <span class="font-bold text-sm text-on-surface">od 3 200 zł</span>
+              <span class="text-[11px] text-secondary font-medium">10 lat gwarancji</span>
+            </div>
+          </button>
+
+          <!-- Item 4 -->
+          <button
+            type="button"
+            role="radio"
+            aria-checked="false"
+            tabindex="-1"
+            class="procedure-card text-left p-6 rounded-2xl border-2 border-surface-container bg-surface hover:border-secondary cursor-pointer transition-all card-lift relative group focus:outline-none"
+            data-procedure="Wybielanie lampą Beyond Polus Advanced"
+            data-price="1 350 zł"
+            data-duration="75 min"
+          >
+            <div class="flex items-center justify-between mb-3">
+              <span class="p-2 rounded-xl bg-surface-container text-secondary group-hover:bg-secondary group-hover:text-white transition-colors" aria-hidden="true">
+                <span class="material-symbols-outlined text-lg">flare</span>
+              </span>
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary">
+                75 min
+              </span>
+            </div>
+            <h4 class="font-semibold text-sm text-on-surface">Wybielanie Beyond Polus</h4>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+              Rozjaśnienie o 5-9 tonów w 1 wizycie z eliminacją nadwrażliwości szkliwa.
+            </p>
+            <div class="mt-4 pt-3 border-t border-surface-container/60 flex items-center justify-between">
+              <span class="font-bold text-sm text-on-surface">1 350 zł</span>
+              <span class="text-[11px] text-on-surface-variant">Efekt natychmiastowy</span>
+            </div>
+          </button>
+
+          <!-- Item 5 -->
+          <button
+            type="button"
+            role="radio"
+            aria-checked="false"
+            tabindex="-1"
+            class="procedure-card text-left p-6 rounded-2xl border-2 border-surface-container bg-surface hover:border-secondary cursor-pointer transition-all card-lift relative group focus:outline-none"
+            data-procedure="Pilny dyżur bólowy 24/7 (natychmiastowe przyjęcie)"
+            data-price="250 zł"
+            data-duration="45 min"
+          >
+            <div class="flex items-center justify-between mb-3">
+              <span class="p-2 rounded-xl bg-red-100 text-red-600 group-hover:bg-red-600 group-hover:text-white transition-colors" aria-hidden="true">
+                <span class="material-symbols-outlined text-lg">emergency</span>
+              </span>
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 animate-pulse">
+                Pilne 24/7
+              </span>
+            </div>
+            <h4 class="font-semibold text-sm text-on-surface">Pilny dyżur bólowy</h4>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+              Natychmiastowe uśmierzenie ostrego bólu, znieczulenie komputerowe i doraźna pomoc.
+            </p>
+            <div class="mt-4 pt-3 border-t border-surface-container/60 flex items-center justify-between">
+              <span class="font-bold text-sm text-on-surface">250 zł</span>
+              <span class="text-[11px] text-red-600 font-semibold">Dziś wolne okna</span>
+            </div>
+          </button>
+
+          <!-- Item 6 -->
+          <button
+            type="button"
+            role="radio"
+            aria-checked="false"
+            tabindex="-1"
+            class="procedure-card text-left p-6 rounded-2xl border-2 border-surface-container bg-surface hover:border-secondary cursor-pointer transition-all card-lift relative group focus:outline-none"
+            data-procedure="Leczenie kanałowe pod mikroskopem Zeiss"
+            data-price="950 zł"
+            data-duration="90 min"
+          >
+            <div class="flex items-center justify-between mb-3">
+              <span class="p-2 rounded-xl bg-surface-container text-secondary group-hover:bg-secondary group-hover:text-white transition-colors" aria-hidden="true">
+                <span class="material-symbols-outlined text-lg">medical_services</span>
+              </span>
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-surface-container-high text-secondary">
+                90 min
+              </span>
+            </div>
+            <h4 class="font-semibold text-sm text-on-surface">Mikroendodoncja Zeiss</h4>
+            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+              Ratowanie trudnych zębów pod powiększeniem 25x, koferdam i szczelne wypełnienie.
+            </p>
+            <div class="mt-4 pt-3 border-t border-surface-container/60 flex items-center justify-between">
+              <span class="font-bold text-sm text-on-surface">950 zł</span>
+              <span class="text-[11px] text-on-surface-variant">Za 1 kanał</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="flex items-center justify-end pt-4 border-t border-surface-container">
+          <button
+            type="button"
+            data-step-target="2"
+            class="step-nav-btn px-8 py-3.5 rounded-full bg-secondary hover:bg-on-secondary-container text-on-secondary font-semibold text-xs flex items-center gap-2 transition-all shadow-md btn-tactile min-h-[44px]"
+          >
+            <span>Wybierz dogodny termin</span>
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Wybór terminu & slotu -->
+      <div id="step-content-2" role="tabpanel" aria-labelledby="step-tab-2" tabindex="0" class="step-panel hidden space-y-8 focus:outline-none">
+        <div>
+          <h3 class="font-headline-sm text-lg font-semibold text-on-surface">
+            Wybierz datę i godzinę wizyty
+          </h3>
+          <p class="font-body-md text-xs text-on-surface-variant mt-1" id="step2-selected-summary">
+            Wybrana procedura: <span class="font-semibold text-secondary" id="summary-proc-title">Przegląd z kamerą wewnątrzustną + plan leczenia</span>
+          </p>
+        </div>
+
+        <!-- Date Day Selector -->
+        <div>
+          <div class="block text-xs font-semibold text-on-surface uppercase tracking-wider mb-3" id="date-group-label">
+            Dzień wizyty
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-3" id="date-buttons-group" role="radiogroup" aria-labelledby="date-group-label">
+            <button
+              type="button"
+              role="radio"
+              aria-checked="true"
+              tabindex="0"
+              class="date-day-btn p-3.5 rounded-2xl border-2 border-secondary bg-surface-container-low text-left transition-all btn-tactile focus:outline-none min-h-[44px]"
+              data-date="Dziś (Dyżur pilny)"
+            >
+              <div class="text-[11px] text-secondary font-bold uppercase tracking-wider">Dziś (Dyżur)</div>
+              <div class="text-sm font-semibold text-on-surface mt-0.5">Dostępne sloty</div>
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked="false"
+              tabindex="-1"
+              class="date-day-btn p-3.5 rounded-2xl border-2 border-surface-container bg-surface hover:border-secondary text-left transition-all btn-tactile focus:outline-none min-h-[44px]"
+              data-date="Jutro"
+            >
+              <div class="text-[11px] text-on-surface-variant font-medium">Jutro</div>
+              <div class="text-sm font-semibold text-on-surface mt-0.5">Środa</div>
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked="false"
+              tabindex="-1"
+              class="date-day-btn p-3.5 rounded-2xl border-2 border-surface-container bg-surface hover:border-secondary text-left transition-all btn-tactile focus:outline-none min-h-[44px]"
+              data-date="Czwartek"
+            >
+              <div class="text-[11px] text-on-surface-variant font-medium">Za 2 dni</div>
+              <div class="text-sm font-semibold text-on-surface mt-0.5">Czwartek</div>
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked="false"
+              tabindex="-1"
+              class="date-day-btn p-3.5 rounded-2xl border-2 border-surface-container bg-surface hover:border-secondary text-left transition-all btn-tactile focus:outline-none min-h-[44px]"
+              data-date="Piątek"
+            >
+              <div class="text-[11px] text-on-surface-variant font-medium">Za 3 dni</div>
+              <div class="text-sm font-semibold text-on-surface mt-0.5">Piątek</div>
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked="false"
+              tabindex="-1"
+              class="date-day-btn p-3.5 rounded-2xl border-2 border-surface-container bg-surface hover:border-secondary text-left transition-all btn-tactile focus:outline-none min-h-[44px]"
+              data-date="Sobota"
+            >
+              <div class="text-[11px] text-on-surface-variant font-medium">Weekend</div>
+              <div class="text-sm font-semibold text-on-surface mt-0.5">Sobota</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Available Hours (Slot Buttons) -->
+        <div class="space-y-4">
+          <div class="block text-xs font-semibold text-on-surface uppercase tracking-wider" id="hours-group-label">
+            Godziny przyjęć
+          </div>
+
+          <div class="space-y-3">
+            <div class="text-xs font-semibold text-on-surface-variant" id="morning-slots-label">Przedpołudnie</div>
+            <div class="flex flex-wrap gap-2.5" role="radiogroup" aria-labelledby="morning-slots-label" id="morning-slots-group">
+              <button type="button" role="radio" aria-checked="false" tabindex="-1" class="slot-btn px-4 py-2.5 rounded-xl border border-surface-container bg-surface-container-lowest text-on-surface font-semibold text-xs hover:border-secondary transition-all btn-tactile focus:outline-none min-h-[44px]" data-slot="08:30">08:30</button>
+              <button type="button" role="radio" aria-checked="false" tabindex="-1" class="slot-btn px-4 py-2.5 rounded-xl border border-surface-container bg-surface-container-lowest text-on-surface font-semibold text-xs hover:border-secondary transition-all btn-tactile focus:outline-none min-h-[44px]" data-slot="09:15">09:15</button>
+              <button type="button" role="radio" aria-checked="false" tabindex="-1" class="slot-btn px-4 py-2.5 rounded-xl border border-surface-container bg-surface-container-lowest text-on-surface font-semibold text-xs hover:border-secondary transition-all btn-tactile focus:outline-none min-h-[44px]" data-slot="10:30">10:30</button>
+              <button type="button" role="radio" aria-checked="false" tabindex="-1" class="slot-btn px-4 py-2.5 rounded-xl border border-surface-container bg-surface-container-lowest text-on-surface font-semibold text-xs hover:border-secondary transition-all btn-tactile focus:outline-none min-h-[44px]" data-slot="11:45">11:45</button>
+            </div>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <div class="text-xs font-semibold text-on-surface-variant" id="afternoon-slots-label">Popołudnie &amp; Dyżur</div>
+            <div class="flex flex-wrap gap-2.5" role="radiogroup" aria-labelledby="afternoon-slots-label" id="afternoon-slots-group">
+              <button type="button" role="radio" aria-checked="false" tabindex="-1" class="slot-btn px-4 py-2.5 rounded-xl border border-surface-container bg-surface-container-lowest text-on-surface font-semibold text-xs hover:border-secondary transition-all btn-tactile focus:outline-none min-h-[44px]" data-slot="13:00">13:00</button>
+              <button type="button" role="radio" aria-checked="false" tabindex="-1" class="slot-btn px-4 py-2.5 rounded-xl border border-surface-container bg-surface-container-lowest text-on-surface font-semibold text-xs hover:border-secondary transition-all btn-tactile focus:outline-none min-h-[44px]" data-slot="14:15">14:15</button>
+              <button type="button" role="radio" aria-checked="true" tabindex="0" class="slot-btn px-4 py-2.5 rounded-xl border border-secondary bg-secondary text-on-secondary font-semibold text-xs transition-all flex items-center gap-1.5 btn-tactile focus:outline-none min-h-[44px]" data-slot="15:40">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse" aria-hidden="true"></span>
+                <span>15:40 (Dyżur)</span>
+              </button>
+              <button type="button" role="radio" aria-checked="false" tabindex="-1" class="slot-btn px-4 py-2.5 rounded-xl border border-surface-container bg-surface-container-lowest text-on-surface font-semibold text-xs hover:border-secondary transition-all btn-tactile focus:outline-none min-h-[44px]" data-slot="17:00">17:00</button>
+              <button type="button" role="radio" aria-checked="false" tabindex="-1" class="slot-btn px-4 py-2.5 rounded-xl border border-secondary bg-surface-container-lowest text-secondary font-semibold text-xs hover:bg-secondary hover:text-white transition-all flex items-center gap-1.5 btn-tactile focus:outline-none min-h-[44px]" data-slot="18:15">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary" aria-hidden="true"></span>
+                <span>18:15 (Dyżur)</span>
+              </button>
+              <button type="button" role="radio" aria-checked="false" tabindex="-1" class="slot-btn px-4 py-2.5 rounded-xl border border-surface-container bg-surface-container-lowest text-on-surface font-semibold text-xs hover:border-secondary transition-all btn-tactile focus:outline-none min-h-[44px]" data-slot="19:30">19:30</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-4 border-t border-surface-container">
+          <button
+            type="button"
+            data-step-target="1"
+            class="step-nav-btn px-6 py-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-xs flex items-center gap-2 transition-all btn-tactile min-h-[44px]"
+          >
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
+            <span>Wstecz</span>
+          </button>
+          <button
+            type="button"
+            data-step-target="3"
+            class="step-nav-btn px-8 py-3.5 rounded-full bg-secondary hover:bg-on-secondary-container text-on-secondary font-semibold text-xs flex items-center gap-2 transition-all shadow-sm btn-tactile min-h-[44px]"
+          >
+            <span>Dalej do danych pacjenta</span>
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Dane pacjenta & finalizacja -->
+      <div id="step-content-3" role="tabpanel" aria-labelledby="step-tab-3" tabindex="0" class="step-panel hidden space-y-8 focus:outline-none">
+        <div>
+          <h3 class="font-headline-sm text-lg font-semibold text-on-surface">
+            Dane kontaktowe pacjenta
+          </h3>
+          <p class="font-body-md text-xs text-on-surface-variant mt-1">
+            Wypełnij dane, aby otrzymać potwierdzenie SMS z przypomnieniem o wizycie.
+          </p>
+        </div>
+
+        <!-- Appointment Summary -->
+        <div class="p-4 rounded-2xl bg-surface-container-low border border-surface-variant/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-secondary text-2xl" aria-hidden="true">event_available</span>
+            <div>
+              <div class="font-semibold text-on-surface text-sm" id="final-summary-proc">
+                Przegląd z kamerą wewnątrzustną + plan leczenia
+              </div>
+              <div class="text-xs text-secondary font-medium" id="final-summary-datetime">
+                Termin: Dziś (Dyżur pilny) o godz. 15:40
+              </div>
+            </div>
+          </div>
+          <button
+            type="button"
+            data-step-target="2"
+            class="step-nav-btn text-xs font-semibold text-secondary hover:underline shrink-0 p-2"
+          >
+            Zmień termin
+          </button>
+        </div>
+
+        <!-- Form with accessible labels (WCAG 3.3.2) -->
+        <form id="booking-form" class="space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="booking-patient-name" class="block text-xs font-semibold text-on-surface mb-1.5">
+                Imię i Nazwisko <span class="text-red-500" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="booking-patient-name"
+                name="name"
+                type="text"
+                required
+                aria-required="true"
+                autocomplete="name"
+                placeholder="np. Anna Kowalska"
+                class="w-full px-4 py-2.5 rounded-xl border border-surface-container bg-surface focus:outline-none focus:ring-2 focus:ring-secondary/40 focus:border-secondary transition-all text-xs min-h-[44px]"
+              />
+            </div>
+            <div>
+              <label for="booking-patient-phone" class="block text-xs font-semibold text-on-surface mb-1.5">
+                Numer telefonu (do SMS z kodem) <span class="text-red-500" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="booking-patient-phone"
+                name="tel"
+                type="tel"
+                required
+                aria-required="true"
+                autocomplete="tel"
+                placeholder="+48 ___ ___ ___"
+                class="w-full px-4 py-2.5 rounded-xl border border-surface-container bg-surface focus:outline-none focus:ring-2 focus:ring-secondary/40 focus:border-secondary transition-all text-xs min-h-[44px]"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="booking-patient-email" class="block text-xs font-semibold text-on-surface mb-1.5">
+                Adres e-mail <span class="text-red-500" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="booking-patient-email"
+                name="email"
+                type="email"
+                required
+                aria-required="true"
+                autocomplete="email"
+                placeholder="anna@example.com"
+                class="w-full px-4 py-2.5 rounded-xl border border-surface-container bg-surface focus:outline-none focus:ring-2 focus:ring-secondary/40 focus:border-secondary transition-all text-xs min-h-[44px]"
+              />
+            </div>
+            <div>
+              <label for="booking-patient-comfort" class="block text-xs font-semibold text-on-surface mb-1.5">
+                Komfort pacjenta & poziom lęku
+              </label>
+              <select
+                id="booking-patient-comfort"
+                name="comfort"
+                class="w-full px-4 py-2.5 rounded-xl border border-surface-container bg-surface focus:outline-none focus:ring-2 focus:ring-secondary/40 focus:border-secondary transition-all text-xs min-h-[44px]"
+              >
+                <option value="standard">Standardowa wizyta</option>
+                <option value="mild">Lekki niepokój przed gabinetem</option>
+                <option value="phobia">Dentofobia — proszę o The Wand i aromaterapię</option>
+                <option value="emergency">Ostry stan bólowy — wymagam szybkiego znieczulenia</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="booking-patient-notes" class="block text-xs font-semibold text-on-surface mb-1.5">
+              Uwagi dla lekarza (opcjonalnie)
+            </label>
+            <textarea
+              id="booking-patient-notes"
+              name="notes"
+              rows="2"
+              placeholder="Opisz swoje dolegliwości lub preferencje..."
+              class="w-full px-4 py-2.5 rounded-xl border border-surface-container bg-surface focus:outline-none focus:ring-2 focus:ring-secondary/40 focus:border-secondary transition-all text-xs"
+            ></textarea>
+          </div>
+
+          <div class="pt-1">
+            <label for="booking-patient-consent" class="flex items-start gap-2.5 cursor-pointer text-xs text-on-surface-variant">
+              <input
+                id="booking-patient-consent"
+                name="consent"
+                type="checkbox"
+                required
+                aria-required="true"
+                class="mt-0.5 rounded text-secondary focus:ring-secondary min-w-[18px] min-h-[18px]"
+              />
+              <span>
+                Wyrażam zgodę na przetwarzanie danych osobowych w celu rezerwacji i realizacji wizyty medycznej w klinice AuraDent zgodnie z RODO.
+              </span>
+            </label>
+          </div>
+
+          <div class="flex items-center justify-between pt-4 border-t border-surface-container">
+            <button
+              type="button"
+              data-step-target="2"
+              class="step-nav-btn px-6 py-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-xs flex items-center gap-2 transition-all btn-tactile min-h-[44px]"
+            >
+              <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_back</span>
+              <span>Wróć</span>
+            </button>
+            <button
+              type="submit"
+              class="px-8 py-3.5 rounded-full bg-secondary hover:bg-on-secondary-container text-on-secondary font-semibold text-xs flex items-center gap-2 transition-all shadow-md btn-tactile min-h-[44px]"
+            >
+              <span class="material-symbols-outlined text-base" aria-hidden="true">check_circle</span>
+              <span>Potwierdź rezerwację wizyty</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Booking Success Feedback (WCAG Live Assertive Status) -->
+        <div id="booking-success-box" role="alert" aria-live="assertive" tabindex="-1" class="hidden p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4 focus:outline-none">
+          <div class="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto shadow-sm" aria-hidden="true">
+            <span class="material-symbols-outlined text-2xl">check</span>
+          </div>
+          <h4 class="text-lg font-bold text-emerald-950">
+            Rezerwacja została potwierdzona!
+          </h4>
+          <p class="text-xs text-emerald-800 max-w-md mx-auto leading-relaxed">
+            Dziękujemy za zaufanie. Na podany numer telefonu oraz adres e-mail wysłaliśmy potwierdzenie rezerwacji z kodem wizyty i wskazówkami dojazdu.
+          </p>
+          <div class="pt-2">
+            <button
+              type="button"
+              id="reset-booking-btn"
+              class="px-6 py-2.5 rounded-full bg-emerald-800 text-white font-semibold text-xs hover:bg-emerald-900 transition-colors btn-tactile min-h-[44px]"
+            >
+              Zarezerwuj kolejną wizytę
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  let selectedProcedure = "Przegląd z kamerą wewnątrzustną + plan leczenia";
+  let selectedDate = "Dziś (Dyżur pilny)";
+  let selectedTime = "15:40 (Dyżur)";
+
+  const stepNames: Record<number, string> = {
+    1: "Krok 1: Wybór procedury stomatologicznej",
+    2: "Krok 2: Wybór terminu i godziny",
+    3: "Krok 3: Wpisanie danych pacjenta i potwierdzenie"
+  };
+
+  const stepTabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.step-tab-btn'));
+  const procedureCards = Array.from(document.querySelectorAll<HTMLButtonElement>('.procedure-card'));
+  const dateBtns = Array.from(document.querySelectorAll<HTMLButtonElement>('.date-day-btn'));
+  const slotBtns = Array.from(document.querySelectorAll<HTMLButtonElement>('.slot-btn'));
+  const stepNavBtns = document.querySelectorAll<HTMLButtonElement>('.step-nav-btn');
+  const bookingForm = document.getElementById('booking-form') as HTMLFormElement | null;
+  const bookingSuccessBox = document.getElementById('booking-success-box') as HTMLElement | null;
+  const resetBtn = document.getElementById('reset-booking-btn') as HTMLButtonElement | null;
+  const announcer = document.getElementById('booking-live-announcer');
+  const summaryProc = document.getElementById('summary-proc-title');
+  const finalSummaryProc = document.getElementById('final-summary-proc');
+  const finalSummaryDateTime = document.getElementById('final-summary-datetime');
+
+  function updateSummaries() {
+    if (summaryProc) summaryProc.textContent = selectedProcedure;
+    if (finalSummaryProc) finalSummaryProc.textContent = selectedProcedure;
+    if (finalSummaryDateTime) {
+      finalSummaryDateTime.textContent = `Termin: ${selectedDate} o godz. ${selectedTime}`;
+    }
+  }
+
+  function setStep(stepNumber: number, focusTarget: boolean = true) {
+    for (let i = 1; i <= 3; i++) {
+      const content = document.getElementById('step-content-' + i);
+      const tab = document.getElementById('step-tab-' + i);
+      if (content && tab) {
+        if (i === stepNumber) {
+          content.classList.remove('hidden');
+          tab.classList.remove('bg-surface-container', 'text-on-surface');
+          tab.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+          tab.setAttribute('aria-selected', 'true');
+          tab.setAttribute('tabindex', '0');
+        } else {
+          content.classList.add('hidden');
+          tab.classList.add('bg-surface-container', 'text-on-surface');
+          tab.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+          tab.setAttribute('aria-selected', 'false');
+          tab.setAttribute('tabindex', '-1');
+        }
+      }
+    }
+
+    updateSummaries();
+
+    if (announcer && stepNames[stepNumber]) {
+      announcer.textContent = stepNames[stepNumber];
+    }
+
+    if (focusTarget) {
+      const activeContent = document.getElementById('step-content-' + stepNumber);
+      activeContent?.focus();
+    }
+  }
+
+  // Step Tabs Navigation
+  stepTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      const step = parseInt(tab.getAttribute('data-step') || '1', 10);
+      setStep(step, false);
+    });
+
+    tab.addEventListener('keydown', (e: KeyboardEvent) => {
+      let targetIndex = -1;
+      if (e.key === 'ArrowRight') {
+        targetIndex = (index + 1) % stepTabs.length;
+      } else if (e.key === 'ArrowLeft') {
+        targetIndex = (index - 1 + stepTabs.length) % stepTabs.length;
+      } else if (e.key === 'Home') {
+        targetIndex = 0;
+      } else if (e.key === 'End') {
+        targetIndex = stepTabs.length - 1;
+      }
+
+      if (targetIndex >= 0) {
+        e.preventDefault();
+        const nextTab = stepTabs[targetIndex];
+        const nextStep = parseInt(nextTab.getAttribute('data-step') || '1', 10);
+        setStep(nextStep, false);
+        nextTab.focus();
+      }
+    });
+  });
+
+  // Step Nav Buttons (Next/Back/Change date)
+  stepNavBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetStep = parseInt(btn.getAttribute('data-step-target') || '1', 10);
+      setStep(targetStep, true);
+    });
+  });
+
+  // Procedure Cards
+  function selectProcedureCard(card: HTMLButtonElement) {
+    procedureCards.forEach((c) => {
+      c.classList.remove('border-secondary', 'bg-surface-container-low/40', 'selected-card');
+      c.classList.add('border-surface-container', 'bg-surface');
+      c.setAttribute('aria-checked', 'false');
+      c.setAttribute('tabindex', '-1');
+    });
+    card.classList.remove('border-surface-container', 'bg-surface');
+    card.classList.add('border-secondary', 'bg-surface-container-low/40', 'selected-card');
+    card.setAttribute('aria-checked', 'true');
+    card.setAttribute('tabindex', '0');
+    selectedProcedure = card.getAttribute('data-procedure') || selectedProcedure;
+    updateSummaries();
+  }
+
+  procedureCards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      selectProcedureCard(card);
+      setTimeout(() => {
+        setStep(2, true);
+      }, 220);
+    });
+
+    card.addEventListener('keydown', (e: KeyboardEvent) => {
+      let targetIndex = -1;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        targetIndex = (index + 1) % procedureCards.length;
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        targetIndex = (index - 1 + procedureCards.length) % procedureCards.length;
+      } else if (e.key === 'Home') {
+        targetIndex = 0;
+      } else if (e.key === 'End') {
+        targetIndex = procedureCards.length - 1;
+      }
+
+      if (targetIndex >= 0) {
+        e.preventDefault();
+        const nextCard = procedureCards[targetIndex];
+        selectProcedureCard(nextCard);
+        nextCard.focus();
+      }
+    });
+  });
+
+  // Date Buttons
+  function selectDateBtn(btn: HTMLButtonElement) {
+    dateBtns.forEach((b) => {
+      b.classList.remove('border-secondary', 'bg-surface-container-low');
+      b.classList.add('border-surface-container', 'bg-surface');
+      b.setAttribute('aria-checked', 'false');
+      b.setAttribute('tabindex', '-1');
+    });
+    btn.classList.remove('border-surface-container', 'bg-surface');
+    btn.classList.add('border-secondary', 'bg-surface-container-low');
+    btn.setAttribute('aria-checked', 'true');
+    btn.setAttribute('tabindex', '0');
+    selectedDate = btn.getAttribute('data-date') || selectedDate;
+    updateSummaries();
+  }
+
+  dateBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      selectDateBtn(btn);
+    });
+
+    btn.addEventListener('keydown', (e: KeyboardEvent) => {
+      let targetIndex = -1;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        targetIndex = (index + 1) % dateBtns.length;
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        targetIndex = (index - 1 + dateBtns.length) % dateBtns.length;
+      }
+
+      if (targetIndex >= 0) {
+        e.preventDefault();
+        const nextBtn = dateBtns[targetIndex];
+        selectDateBtn(nextBtn);
+        nextBtn.focus();
+      }
+    });
+  });
+
+  // Slot Buttons
+  function selectSlotBtn(btn: HTMLButtonElement) {
+    slotBtns.forEach((b) => {
+      b.classList.remove('bg-secondary', 'text-on-secondary');
+      b.classList.add('bg-surface-container-lowest', 'text-on-surface');
+      b.setAttribute('aria-checked', 'false');
+      b.setAttribute('tabindex', '-1');
+    });
+    btn.classList.remove('bg-surface-container-lowest', 'text-on-surface');
+    btn.classList.add('bg-secondary', 'text-on-secondary');
+    btn.setAttribute('aria-checked', 'true');
+    btn.setAttribute('tabindex', '0');
+    selectedTime = btn.getAttribute('data-slot') || btn.textContent?.trim() || selectedTime;
+    updateSummaries();
+  }
+
+  slotBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      selectSlotBtn(btn);
+    });
+
+    btn.addEventListener('keydown', (e: KeyboardEvent) => {
+      let targetIndex = -1;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        targetIndex = (index + 1) % slotBtns.length;
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        targetIndex = (index - 1 + slotBtns.length) % slotBtns.length;
+      }
+
+      if (targetIndex >= 0) {
+        e.preventDefault();
+        const nextBtn = slotBtns[targetIndex];
+        selectSlotBtn(nextBtn);
+        nextBtn.focus();
+      }
+    });
+  });
+
+  // Form Submit
+  bookingForm?.addEventListener('submit', (e: SubmitEvent) => {
+    e.preventDefault();
+    if (bookingForm && bookingSuccessBox) {
+      bookingForm.classList.add('hidden');
+      bookingSuccessBox.classList.remove('hidden');
+      bookingSuccessBox.focus();
+    }
+  });
+
+  // Form Reset
+  resetBtn?.addEventListener('click', () => {
+    if (bookingForm && bookingSuccessBox) {
+      bookingForm.reset();
+      bookingForm.classList.remove('hidden');
+      bookingSuccessBox.classList.add('hidden');
+      setStep(1, true);
+    }
+  });
+</script>
